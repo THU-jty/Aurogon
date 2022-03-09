@@ -79,7 +79,7 @@ void DataList::finalize(){
         ts_t duration = svm_duration[i];
         if(duration==-1)
             break;
-        printf("%lld ms\n", duration/1000000);
+        //printf("%lld ms\n", duration/1000000);
     }
 
 }
