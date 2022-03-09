@@ -1,0 +1,28 @@
+172.23.12.128 34569
+
+workload 3
+txn_size 16
+
+new_order_ratio 0
+neworder_local_ratio 0
+payment_local_ratio 85
+scale_factor 0
+
+key_range 1500000
+zipfan 0
+read_snapshot_ratio 50
+
+node_cnt 3
+worker_per_server 8
+
+stale_reads 0
+immortal_writes 0
+
+retry_txns 1
+retry_interval 500
+
+key_delay -1
+rmw_delay 10
+hotpoint_num 2000
+
+running_time 15

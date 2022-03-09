@@ -1,0 +1,52 @@
+172.23.12.128 34569
+// server ip and port of memcached you want to start
+
+/*workload arguments*/
+workload 3
+// workload type, 3 for TPC-C and 4 for YCSB
+txn_size 16
+// must be 16 for TPC-C and represents the number of reqs in each YCSB transaction
+
+/*TPC-C arguments*/
+new_order_ratio 0
+//new_order transaction ratio, 0 for all-payment and 100 for all-new_order, ranging [0,100]
+neworder_local_ratio 0
+// in neworder txns, ratio for warehouse_id in local warehouse, ranging [0,100]
+payment_local_ratio 85
+// in payment txns, ratio for warehouse_id & district_id in local warehouse, ranging [0,100]
+scale_factor 0
+// 0 means only one warehouse for each server, and x (x>0) means x warehouse for each thread
+
+/*YCSB arguments*/
+key_range 1500000
+// the key count for all servers, must be divided exactly by node_cnt
+zipfan 0
+// zipfan factor, from 0(uniform) to 99, represents from 0.00 to 0.99, must be an int in [0,99]
+read_snapshot_ratio 50
+// ratio of request type, 0 for all reads and 100 for all read-modify-writes
+
+/*system arguments*/
+node_cnt 3
+// server count
+worker_per_server 8
+// thread number for each server
+
+stale_reads 0
+immortal_writes 0
+// 1 means solve the anomaly, setting both two args to 1 ensures strong-partition serializability
+
+retry_txns 1
+retry_interval 500
+// allow retrying txns after aborts and retry starts 500us after aborts
+
+key_delay -1
+// -1 for turning on deferral, and 0 for turning it off
+rmw_delay 10
+hotpoint_num 2000
+// defer requests for 10us, and judge the data as hotspots when it receives 2000 reqs per 500ms
+
+/*running arguments*/
+running_time 15
+// running time, unit: seconds
+
+// all arguments must be an integer

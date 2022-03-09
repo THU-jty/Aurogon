@@ -1,0 +1,13 @@
+txn_per_worker 1
+prepared_req_per_thread 32
+node_cnt 2
+worker_per_server 1
+txn_size 1
+read_req_ratio_per_txn 0
+local_req_ratio 100
+key_range 2
+req_buffer_size 4000
+running_time 10000000000
+show_sync_time 1
+clock_type 2
+mvcc_type 2
