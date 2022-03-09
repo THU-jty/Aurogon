@@ -48,7 +48,7 @@
 typedef long long int ts_t;
 
 //------ test related ------//
- #define TEST_MODE
+ //#define TEST_MODE
 #define TEST_TIMES 50
 #define TEST_INTERVAL 100 // milisecond
 
